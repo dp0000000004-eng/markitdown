@@ -177,7 +177,7 @@ class DocxConverterWithOCR(HtmlConverter):
                 if i not in used:
                     used.append(i)
                     return f"<p>{_PLACEHOLDER.format(i)}</p>"
-            return ""  # remove image if all OCR texts already used
+            return " "  # remove image if all OCR texts already used
 
         result = re.sub(r"<img[^>]*>", replace_img, html)
 
@@ -187,3 +187,4 @@ class DocxConverterWithOCR(HtmlConverter):
                 result += f"<p>{_PLACEHOLDER.format(i)}</p>"
 
         return result, ocr_texts
+
